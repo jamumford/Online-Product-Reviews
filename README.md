@@ -36,14 +36,14 @@ Expected folders (key ones used as inputs by these scripts):
 │   ├── B/
 │   └── C/
 ├── Summary_Annotations/
-│   ├── <Category>_summary.json   (name can vary; must be valid JSON)
+│   ├── <Category>_summary.json
 │   └── ...
 ├── ML_ascription_outputs/
 │   └── ML_Predictions_Feature_Scores_Full_Set.csv
 ├── ML_datasets/
 │   ├── <Category>_extended.json
 │   └── ...
-├── Analysis/                     (created by you; outputs are written here)
+├── Analysis/                     (outputs are written here)
 └── s*.py                         (scripts)
 ```
 
@@ -107,11 +107,6 @@ Where keys like `"0"`, `"1"` are review indices, and each option contains a dict
 A CSV of model outputs:
 
 - `ML_ascription_outputs/ML_Predictions_Feature_Scores_Full_Set.csv`
-
-Must include columns:
-
-- `category`, `reviewerID`, `unixReviewTime`
-- and the ML fields you want to append (see script section below)
 
 #### `ML_datasets/`
 JSON arrays (one file per category), e.g.:
@@ -239,7 +234,7 @@ Computes CQ scores and overall review quality for:
 - `ML Ascription` (model outputs)
 
 **Inputs**
-- All JSON files in `ML_datasets/` (each must be a JSON **list**)
+- All JSON files in `ML_datasets/`
 - Each review object should contain:
   - `reviewerID`, `unixReviewTime`
   - `overall` (rating)
